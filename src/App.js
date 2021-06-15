@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Content } from 'carbon-components-react';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import './app.scss';
+import TutorialHeader from './components/TutorialHeader';
+import LandingPage from './content/LandingPage/LandingPage';
+import RepoPage from './content/RepoPage/RepoPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <>
+        <TutorialHeader />
+        <Content>
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/repos" component={RepoPage} />
+          </Switch>
+        </Content>
+      </>
+    );
+  }
 }
 
 export default App;
